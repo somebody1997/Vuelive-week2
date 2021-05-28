@@ -1,4 +1,3 @@
-console.clear();
 const Url = 'https://vue3-course-api.hexschool.io';
 const path = 'vueliveclass';
 const productNum = document.querySelector("#productCount");
