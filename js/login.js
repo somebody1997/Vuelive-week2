@@ -8,17 +8,18 @@ loginBtn.addEventListener('click', login);
 
 function login(event){
     event.preventDefault();
-    const Email = inputEmail.value;
-    const Password = inputPassword.value;
+    const username = inputEmail.value;
+    const password = inputPassword.value;
     const data = {
-        Email,
-        Password
+        username,
+        password,
     }
-    axios.post(`${url}admin/singin`, data).then((res) =>{
+    axios.post(`${url}admin/signin`, data)
+        .then((res) =>{
         if(res.data.success){
             alert('登入成功，請稍候');
-            const { token,expired } = res.data;
-            document.cookie = `hexToken = ${token}; expires = ${ new Data(expired) }; path = /`;
+            const { token, expired } = res.data;
+            document.cookie = `hexToken=${token};expires=${new Date(expired)}; path=/`;
             window.location = `productslist.html`;
             console.log(expired, new Date(expired));
         }else {
